@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 void main() {
-  if (!kReleaseMode) {
+  if (kReleaseMode) {
     runApp(const WorldNewsApp());
   } else {
     runApp(DevicePreview(
