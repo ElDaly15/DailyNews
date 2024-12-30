@@ -32,17 +32,26 @@ dependencies:
   dio: ^5.7.0
   flutter:
     sdk: flutter
+  flutter_launcher_icons: ^0.14.2
+  flutter_native_splash: ^2.4.4
 
 dev_dependencies:
-
-  # The "flutter_lints" package below contains a set of recommended lints to
-  # encourage good coding practices. The lint set provided by the package is
-  # activated in the `analysis_options.yaml` file located at the root of your
-  # package. See that file for information about deactivating specific lint
-  # rules and activating additional ones.
   flutter_lints: ^4.0.0
   flutter_test:
     sdk: flutter
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/ic_launcher.png" # Your logo path
+  adaptive_icon_background: "#021E45" # Background color for Android adaptive icons
+  adaptive_icon_foreground: "assets/images/ic_launcher.png" # Foreground image for Android adaptive icons
+
+flutter_native_splash:
+  color: "#021E45"
+  android_12:
+    icon_background_color: "#021E45"
+    icon_background_color_dark: "#021E45"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -79,9 +88,6 @@ flutter:
           weight: 700
         - asset: assets/fonts/Poppins-ExtraBold.ttf
           weight: 800
-    - family: Karasha
-      fonts:
-        - asset: assets/fonts/Karasha.ttf
 
 flutter_assets:
   assets_path: assets/images/
