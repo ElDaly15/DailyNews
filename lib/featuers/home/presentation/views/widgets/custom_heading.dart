@@ -23,7 +23,7 @@ class CustomHeading extends StatelessWidget {
           child: Text(
             'See All',
             style: TextStyles.font14Regular(context)
-                .copyWith(color: AppColors.subTitleColor),
+                .copyWith(color: const Color.fromARGB(255, 175, 173, 192)),
           ),
         ),
       ],
