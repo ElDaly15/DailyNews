@@ -13,6 +13,8 @@ class CustomViewsAppBar extends StatelessWidget {
     return Row(
       children: [
         IconButton(
+          alignment: Alignment.centerLeft,
+          padding: const EdgeInsets.all(0),
           onPressed: () {
             g.Get.back();
           },
