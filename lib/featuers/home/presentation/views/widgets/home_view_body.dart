@@ -3,7 +3,9 @@ import 'package:daily_news/featuers/home/presentation/views/widgets/custom_home_
 import 'package:daily_news/featuers/home/presentation/views/widgets/custom_list_view_of_latest_news.dart';
 import 'package:daily_news/featuers/home/presentation/views/widgets/custom_search_bar.dart';
 import 'package:daily_news/featuers/home/presentation/views/widgets/trending_item.dart';
+import 'package:daily_news/featuers/trending/presentation/views/trending_view.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart' as g;
 
 class HomeViewBody extends StatefulWidget {
   const HomeViewBody({super.key});
@@ -45,7 +47,11 @@ class _HomeViewBodyState extends State<HomeViewBody> {
           sliver: SliverToBoxAdapter(
             child: CustomHeading(
               mainTitle: 'Trending',
-              onTap: () {},
+              onTap: () {
+                g.Get.to(() => const TrendingView(),
+                    transition: g.Transition.fade,
+                    duration: const Duration(milliseconds: 500));
+              },
             ),
           ),
         ),
