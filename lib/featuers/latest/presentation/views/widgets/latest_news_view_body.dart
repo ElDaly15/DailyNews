@@ -1,6 +1,7 @@
 import 'package:daily_news/core/widgets/headers/custom_app_header.dart';
 import 'package:daily_news/featuers/latest/data/Models/selected_news_category_model.dart';
 import 'package:daily_news/featuers/latest/presentation/views/widgets/container_of_selected_news.dart';
+import 'package:daily_news/featuers/latest/presentation/views/widgets/custom_sliver_list_of_latest_news.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -87,6 +88,10 @@ class _LatestNewsViewBodyState extends State<LatestNewsViewBody> {
                 }),
           ),
         ),
+        const SliverToBoxAdapter(child: SizedBox(height: 20)),
+        const SliverPadding(
+            padding: EdgeInsets.symmetric(horizontal: 22),
+            sliver: CustomSliverOfLatestNews()),
       ],
     );
   }
