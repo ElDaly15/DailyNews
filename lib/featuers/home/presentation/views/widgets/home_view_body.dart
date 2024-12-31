@@ -4,6 +4,7 @@ import 'package:daily_news/featuers/home/presentation/views/widgets/custom_list_
 import 'package:daily_news/featuers/home/presentation/views/widgets/custom_search_bar.dart';
 import 'package:daily_news/featuers/home/presentation/views/widgets/trending_item.dart';
 import 'package:daily_news/featuers/latest/presentation/views/latest_news_view.dart';
+import 'package:daily_news/featuers/search/presentation/views/search_view.dart';
 import 'package:daily_news/featuers/trending/presentation/views/trending_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart' as g;
@@ -36,7 +37,11 @@ class _HomeViewBodyState extends State<HomeViewBody> {
           padding: const EdgeInsets.symmetric(horizontal: 22),
           sliver: SliverToBoxAdapter(
             child: CustomSearchContainer(
-              onTap: () {},
+              onTap: () {
+                g.Get.to(() => const SearchView(),
+                    transition: g.Transition.fade,
+                    duration: const Duration(milliseconds: 500));
+              },
             ),
           ),
         ),
