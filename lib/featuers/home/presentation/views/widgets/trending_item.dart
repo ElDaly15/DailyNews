@@ -14,7 +14,6 @@ class TrendingItem extends StatelessWidget {
         Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(8),
-            color: AppColors.whiteColor,
           ),
           height: 200,
           width: double.infinity,
