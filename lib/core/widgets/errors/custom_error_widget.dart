@@ -1,4 +1,5 @@
 import 'package:daily_news/core/utils/app_colors.dart';
+import 'package:daily_news/core/utils/app_images.dart';
 import 'package:daily_news/core/utils/app_styles.dart';
 import 'package:daily_news/featuers/home/presentation/views/widgets/custom_home_app_bar.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +18,7 @@ class CustomErrorWidget extends StatelessWidget {
           const CustomHomeAppBar(),
           const SizedBox(height: 20),
           const Spacer(),
-          Image.asset('assets/images/error.png'),
+          Image.asset(Assets.imagesError),
           Text(
             'An Error Occurred , Please Try Again',
             style: TextStyles.font22Bold(context).copyWith(
