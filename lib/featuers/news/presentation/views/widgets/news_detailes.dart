@@ -58,6 +58,7 @@ class NewsDetailes extends StatelessWidget {
                   newsModel.sourceName!,
                   style: TextStyles.font14Regular(context).copyWith(
                       color: const Color.fromARGB(255, 175, 173, 192)),
+                  overflow: TextOverflow.ellipsis,
                 ),
               ),
             ),

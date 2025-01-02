@@ -1,3 +1,4 @@
+import 'package:daily_news/core/loading/fake_list_of_news.dart';
 import 'package:daily_news/core/models/news_model.dart';
 import 'package:daily_news/featuers/home/presentation/views/widgets/custom_heading.dart';
 import 'package:daily_news/featuers/home/presentation/views/widgets/custom_home_app_bar.dart';
@@ -84,48 +85,7 @@ class HomeViewLoading extends StatelessWidget {
             ),
             enabled: true,
             child: CustomListViewOfLatestNews(
-              latestNews: [
-                NewsModel(
-                    sourceName: 'BBC',
-                    author: 'BBC',
-                    title: 'Russian warship: Moskva sinks in Black Sea',
-                    description: 'Russian warship: Moskva sinks in Black Sea',
-                    url: 'https://www.bbc.co.uk/news/world-europe-60482520',
-                    urlToImage:
-                        'https://archive.org/download/placeholder-image/placeholder-image.jpg',
-                    publishedAt: '2022-02-24T14:00:00Z',
-                    content: 'Russian warship: Moskva sinks in Black Sea'),
-                NewsModel(
-                    sourceName: 'BBC',
-                    author: 'BBC',
-                    title: 'Russian warship: Moskva sinks in Black Sea',
-                    description: 'Russian warship: Moskva sinks in Black Sea',
-                    url: 'https://www.bbc.co.uk/news/world-europe-60482520',
-                    urlToImage:
-                        'https://archive.org/download/placeholder-image/placeholder-image.jpg',
-                    publishedAt: '2022-02-24T14:00:00Z',
-                    content: 'Russian warship: Moskva sinks in Black Sea'),
-                NewsModel(
-                    sourceName: 'BBC',
-                    author: 'BBC',
-                    title: 'Russian warship: Moskva sinks in Black Sea',
-                    description: 'Russian warship: Moskva sinks in Black Sea',
-                    url: 'https://www.bbc.co.uk/news/world-europe-60482520',
-                    urlToImage:
-                        'https://archive.org/download/placeholder-image/placeholder-image.jpg',
-                    publishedAt: '2022-02-24T14:00:00Z',
-                    content: 'Russian warship: Moskva sinks in Black Sea'),
-                NewsModel(
-                    sourceName: 'BBC',
-                    author: 'BBC',
-                    title: 'Russian warship: Moskva sinks in Black Sea',
-                    description: 'Russian warship: Moskva sinks in Black Sea',
-                    url: 'https://www.bbc.co.uk/news/world-europe-60482520',
-                    urlToImage:
-                        'https://archive.org/download/placeholder-image/placeholder-image.jpg',
-                    publishedAt: '2022-02-24T14:00:00Z',
-                    content: 'Russian warship: Moskva sinks in Black Sea'),
-              ],
+              latestNews: fakeListOfNews,
             )),
       ],
     );
