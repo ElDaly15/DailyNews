@@ -29,8 +29,20 @@ class TrendingItem extends StatelessWidget {
             child: ClipRRect(
                 borderRadius: BorderRadius.circular(8),
                 child: CachedNetworkImage(
-                    imageUrl:
-                        'https://cdn.pixabay.com/photo/2015/04/23/22/00/new-year-background-736885_960_720.jpg')),
+                  placeholder: (context, url) => const Center(
+                    child: CircularProgressIndicator(
+                      color: AppColors.whiteColor,
+                    ),
+                  ),
+                  errorWidget: (context, url, error) => const Icon(
+                    Icons.error,
+                    color: AppColors.whiteColor,
+                    size: 44,
+                  ),
+                  imageUrl:
+                      'https://cdn.pixabay.com/photo/2015/04/23/22/00/new-year-background-736885_960_720.jpg',
+                  fit: BoxFit.cover,
+                )),
           ),
           const SizedBox(height: 10),
           Text(

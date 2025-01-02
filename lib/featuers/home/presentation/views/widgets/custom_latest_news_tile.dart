@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:daily_news/core/utils/app_colors.dart';
 import 'package:daily_news/core/utils/app_styles.dart';
 import 'package:daily_news/featuers/news/presentation/views/news_view.dart';
@@ -21,14 +22,24 @@ class CustomLatestListTile extends StatelessWidget {
         child: Row(
           children: [
             ClipRRect(
-              borderRadius: BorderRadius.circular(8),
-              child: Image.asset(
-                'assets/images/test.jpg',
-                width: 100,
-                height: 100,
-                fit: BoxFit.cover,
-              ),
-            ),
+                borderRadius: BorderRadius.circular(8),
+                child: CachedNetworkImage(
+                  width: 100,
+                  height: 100,
+                  placeholder: (context, url) => const Center(
+                    child: CircularProgressIndicator(
+                      color: AppColors.whiteColor,
+                    ),
+                  ),
+                  errorWidget: (context, url, error) => const Icon(
+                    Icons.error,
+                    color: AppColors.whiteColor,
+                    size: 44,
+                  ),
+                  imageUrl:
+                      'https://cdn.pixabay.com/photo/2015/04/23/22/00/new-year-background-736885_960_720.jpg',
+                  fit: BoxFit.cover,
+                )),
             const SizedBox(width: 10),
             Expanded(
               // This wraps only the column to allow it to take available space
