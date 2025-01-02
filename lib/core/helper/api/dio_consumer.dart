@@ -7,6 +7,7 @@ class DioConsumer extends ApiConsumer {
   final Dio dio;
 
   DioConsumer({required this.dio}) {
+    dio.options.baseUrl = 'https://newsapi.org/v2/';
     dio.interceptors.add(ApiInterceptors());
     dio.interceptors.add(LogInterceptor(
         request: true,
