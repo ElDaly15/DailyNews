@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:daily_news/core/utils/app_colors.dart';
 import 'package:daily_news/core/utils/app_styles.dart';
 import 'package:daily_news/featuers/news/presentation/views/news_view.dart';
@@ -26,12 +27,10 @@ class TrendingItem extends StatelessWidget {
             height: 200,
             width: double.infinity,
             child: ClipRRect(
-              borderRadius: BorderRadius.circular(8),
-              child: Image.asset(
-                'assets/images/test.jpg',
-                fit: BoxFit.cover,
-              ),
-            ),
+                borderRadius: BorderRadius.circular(8),
+                child: CachedNetworkImage(
+                    imageUrl:
+                        'https://cdn.pixabay.com/photo/2015/04/23/22/00/new-year-background-736885_960_720.jpg')),
           ),
           const SizedBox(height: 10),
           Text(

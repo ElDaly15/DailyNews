@@ -1,12 +1,12 @@
 class NewsModel {
-  final String sourceName;
-  final String author;
-  final String title;
-  final String description;
-  final String url;
-  final String urlToImage;
-  final String publishedAt;
-  final String content;
+  final String? sourceName;
+  final String? author;
+  final String? title;
+  final String? description;
+  final String? url;
+  final String? urlToImage;
+  final String? publishedAt;
+  final String? content;
 
   NewsModel({
     required this.sourceName,
@@ -21,14 +21,14 @@ class NewsModel {
 
   factory NewsModel.fromJson(Map<String, dynamic> json) {
     return NewsModel(
-      sourceName: json['source']['name'],
-      author: json['author'],
-      title: json['title'],
-      description: json['description'],
-      url: json['url'],
-      urlToImage: json['urlToImage'],
-      publishedAt: json['publishedAt'],
-      content: json['content'],
+      sourceName: json['source']['name'] ?? 'Unknown Source',
+      author: json['author'] ?? 'Unknown Author',
+      title: json['title'] ?? 'Unknown Title',
+      description: json['description'] ?? 'Unknown Description',
+      url: json['url'] ?? 'Unknown Url',
+      urlToImage: json['urlToImage'] ?? 'Unknown Image',
+      publishedAt: json['publishedAt'] ?? 'Unknown Date',
+      content: json['content'] ?? 'Unknown Content',
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:daily_news/core/helper/api/api_consumer.dart';
+import 'package:daily_news/core/helper/api/endpoints.dart';
 import 'package:daily_news/core/helper/api/interceptors.dart';
 import 'package:daily_news/core/helper/errors/exceptions.dart';
 import 'package:dio/dio.dart';
@@ -7,7 +8,7 @@ class DioConsumer extends ApiConsumer {
   final Dio dio;
 
   DioConsumer({required this.dio}) {
-    dio.options.baseUrl = 'https://newsapi.org/v2/';
+    dio.options.baseUrl = Endpoints.baseUrl;
     dio.interceptors.add(ApiInterceptors());
     dio.interceptors.add(LogInterceptor(
         request: true,
