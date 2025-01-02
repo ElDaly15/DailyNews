@@ -1,3 +1,4 @@
+import 'package:daily_news/featuers/home/presentation/manager/get_latest_news_cubit/get_latest_news_cubit.dart';
 import 'package:daily_news/featuers/home/presentation/manager/get_trending_news_cubit/get_trending_news_cubit.dart';
 import 'package:daily_news/featuers/splash/presentation/views/splash_view.dart';
 import 'package:device_preview/device_preview.dart';
@@ -20,8 +21,15 @@ class WorldNewsApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => GetTrendingNewsCubit()..getTrendingNews(q: 'world'),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => GetTrendingNewsCubit()..getNews(q: 'world'),
+        ),
+        BlocProvider(
+          create: (context) => GetLatestNewsCubit()..getNews(q: 'egypt'),
+        ),
+      ],
       child: GetMaterialApp(
         locale: DevicePreview.locale(context),
         builder: DevicePreview.appBuilder,

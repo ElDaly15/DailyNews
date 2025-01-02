@@ -1,5 +1,6 @@
 import 'package:daily_news/core/loading/home_view_loading.dart';
 import 'package:daily_news/core/widgets/errors/custom_error_widget.dart';
+import 'package:daily_news/featuers/home/presentation/manager/get_latest_news_cubit/get_latest_news_cubit.dart';
 import 'package:daily_news/featuers/home/presentation/manager/get_trending_news_cubit/get_trending_news_cubit.dart';
 import 'package:daily_news/featuers/home/presentation/views/widgets/custom_heading.dart';
 import 'package:daily_news/featuers/home/presentation/views/widgets/custom_home_app_bar.dart';
@@ -18,99 +19,107 @@ class HomeViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<GetTrendingNewsCubit, GetTrendingNewsState>(
-      builder: (context, state) {
-        if (state is GetTrendingNewsSuccess) {
-          return CustomScrollView(
-            slivers: [
-              const SliverToBoxAdapter(
-                child: SafeArea(child: SizedBox()),
-              ),
-              const SliverPadding(
-                padding: EdgeInsets.symmetric(horizontal: 22),
-                sliver: SliverToBoxAdapter(
-                  child: CustomHomeAppBar(),
-                ),
-              ),
-              const SliverToBoxAdapter(
-                child: SizedBox(height: 20),
-              ),
-              SliverPadding(
-                padding: const EdgeInsets.symmetric(horizontal: 22),
-                sliver: SliverToBoxAdapter(
-                  child: CustomSearchContainer(
-                    onTap: () {
-                      g.Get.to(() => const SearchView(),
-                          transition: g.Transition.fade,
-                          duration: const Duration(milliseconds: 500));
-                    },
+    return BlocBuilder<GetLatestNewsCubit, GetLatestNewsState>(
+      builder: (context, lastState) {
+        return BlocBuilder<GetTrendingNewsCubit, GetTrendingNewsState>(
+          builder: (context, state) {
+            if (state is GetTrendingNewsSuccess &&
+                lastState is GetLatestNewsSuccess) {
+              return CustomScrollView(
+                slivers: [
+                  const SliverToBoxAdapter(
+                    child: SafeArea(child: SizedBox()),
                   ),
-                ),
-              ),
-              const SliverToBoxAdapter(
-                child: SizedBox(height: 22),
-              ),
-              SliverPadding(
-                padding: const EdgeInsets.symmetric(horizontal: 22),
-                sliver: SliverToBoxAdapter(
-                  child: CustomHeading(
-                    mainTitle: 'Trending',
-                    onTap: () {
-                      g.Get.to(
-                          () => TrendingView(
-                                newsList: state.news,
-                              ),
-                          transition: g.Transition.fade,
-                          duration: const Duration(milliseconds: 500));
-                    },
+                  const SliverPadding(
+                    padding: EdgeInsets.symmetric(horizontal: 22),
+                    sliver: SliverToBoxAdapter(
+                      child: CustomHomeAppBar(),
+                    ),
                   ),
-                ),
-              ),
-              const SliverToBoxAdapter(
-                child: SizedBox(height: 22),
-              ),
-              SliverPadding(
-                padding: const EdgeInsets.symmetric(horizontal: 22),
-                sliver: SliverToBoxAdapter(
-                  child: TrendingItem(
-                    newsModel: state.news[0],
+                  const SliverToBoxAdapter(
+                    child: SizedBox(height: 20),
                   ),
-                ),
-              ),
-              const SliverToBoxAdapter(
-                child: SizedBox(height: 22),
-              ),
-              SliverPadding(
-                padding: const EdgeInsets.symmetric(horizontal: 22),
-                sliver: SliverToBoxAdapter(
-                  child: CustomHeading(
-                    mainTitle: 'Latest',
-                    onTap: () {
-                      g.Get.to(() => const LatestNewsView(),
-                          transition: g.Transition.fade,
-                          duration: const Duration(milliseconds: 500));
-                    },
+                  SliverPadding(
+                    padding: const EdgeInsets.symmetric(horizontal: 22),
+                    sliver: SliverToBoxAdapter(
+                      child: CustomSearchContainer(
+                        onTap: () {
+                          g.Get.to(() => const SearchView(),
+                              transition: g.Transition.fade,
+                              duration: const Duration(milliseconds: 500));
+                        },
+                      ),
+                    ),
                   ),
-                ),
-              ),
-              const SliverToBoxAdapter(
-                child: SizedBox(height: 22),
-              ),
-              const SliverPadding(
-                padding: EdgeInsets.symmetric(horizontal: 22),
-                sliver: SliverToBoxAdapter(
-                  child: CustomListViewOfLatestNews(),
-                ),
-              ),
-            ],
-          );
-        } else if (state is GetTrendingNewsFailuer) {
-          return CustomErrorWidget(
-            errorMsg: state.message,
-          );
-        } else {
-          return const HomeViewLoading();
-        }
+                  const SliverToBoxAdapter(
+                    child: SizedBox(height: 22),
+                  ),
+                  SliverPadding(
+                    padding: const EdgeInsets.symmetric(horizontal: 22),
+                    sliver: SliverToBoxAdapter(
+                      child: CustomHeading(
+                        mainTitle: 'Trending',
+                        onTap: () {
+                          g.Get.to(
+                              () => TrendingView(
+                                    newsList: state.news,
+                                  ),
+                              transition: g.Transition.fade,
+                              duration: const Duration(milliseconds: 500));
+                        },
+                      ),
+                    ),
+                  ),
+                  const SliverToBoxAdapter(
+                    child: SizedBox(height: 22),
+                  ),
+                  SliverPadding(
+                    padding: const EdgeInsets.symmetric(horizontal: 22),
+                    sliver: SliverToBoxAdapter(
+                      child: TrendingItem(
+                        newsModel: state.news[0],
+                      ),
+                    ),
+                  ),
+                  const SliverToBoxAdapter(
+                    child: SizedBox(height: 22),
+                  ),
+                  SliverPadding(
+                    padding: const EdgeInsets.symmetric(horizontal: 22),
+                    sliver: SliverToBoxAdapter(
+                      child: CustomHeading(
+                        mainTitle: 'Latest',
+                        onTap: () {
+                          g.Get.to(() => const LatestNewsView(),
+                              transition: g.Transition.fade,
+                              duration: const Duration(milliseconds: 500));
+                        },
+                      ),
+                    ),
+                  ),
+                  const SliverToBoxAdapter(
+                    child: SizedBox(height: 22),
+                  ),
+                  SliverPadding(
+                    padding: const EdgeInsets.symmetric(horizontal: 22),
+                    sliver: SliverToBoxAdapter(
+                      child: CustomListViewOfLatestNews(
+                        latestNews: lastState.newsList,
+                      ),
+                    ),
+                  ),
+                ],
+              );
+            } else if (state is GetTrendingNewsFailuer ||
+                lastState is GetLatestNewsFailuer) {
+              return const CustomErrorWidget(
+                errorMsg: 'Something went wrong',
+              );
+            } else {
+              return const HomeViewLoading();
+            }
+          },
+        );
       },
     );
   }

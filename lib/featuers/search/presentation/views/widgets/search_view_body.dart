@@ -1,6 +1,5 @@
 import 'package:daily_news/core/utils/app_colors.dart';
 import 'package:daily_news/core/utils/app_styles.dart';
-import 'package:daily_news/featuers/home/presentation/views/widgets/custom_list_view_of_latest_news.dart';
 import 'package:flutter/material.dart';
 
 class SearchViewBody extends StatelessWidget {
@@ -22,7 +21,7 @@ class SearchViewBody extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            const CustomListViewOfLatestNews(),
+            // const CustomListViewOfLatestNews(),
           ],
         ),
       ),

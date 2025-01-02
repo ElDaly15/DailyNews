@@ -1,4 +1,3 @@
-import 'package:daily_news/featuers/home/presentation/views/widgets/custom_latest_news_tile.dart';
 import 'package:flutter/material.dart';
 
 class CustomSliverOfLatestNews extends StatelessWidget {
@@ -12,7 +11,7 @@ class CustomSliverOfLatestNews extends StatelessWidget {
           padding: index == 0
               ? const EdgeInsets.only(top: 0, bottom: 16)
               : const EdgeInsets.only(bottom: 16),
-          child: const CustomLatestListTile(),
+          // child: const CustomLatestListTile(),
         );
       }, childCount: 5),
     );

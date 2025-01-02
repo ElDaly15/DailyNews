@@ -6,17 +6,16 @@ import 'package:dio/dio.dart';
 // ignore: depend_on_referenced_packages
 import 'package:meta/meta.dart';
 
-part 'get_trending_news_state.dart';
+part 'get_latest_news_state.dart';
 
-class GetTrendingNewsCubit extends Cubit<GetTrendingNewsState> {
-  GetTrendingNewsCubit() : super(GetTrendingNewsInitial());
-
+class GetLatestNewsCubit extends Cubit<GetLatestNewsState> {
+  GetLatestNewsCubit() : super(GetLatestNewsInitial());
   void getNews({required String q}) async {
-    emit(GetTrendingNewsLoading());
+    emit(GetLatestNewsLoading());
     var response =
         await GetAllNewsRepoImpl(apiConsumer: DioConsumer(dio: Dio()))
             .getAllNews(q: q);
-    response.fold((l) => emit(GetTrendingNewsFailuer(l.message)),
-        (r) => emit(GetTrendingNewsSuccess(r)));
+    response.fold((l) => emit(GetLatestNewsFailuer(l.message)),
+        (r) => emit(GetLatestNewsSuccess(r)));
   }
 }
