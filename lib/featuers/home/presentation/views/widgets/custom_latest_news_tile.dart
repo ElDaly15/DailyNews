@@ -91,10 +91,14 @@ class _CustomLatestListTileState extends State<CustomLatestListTile> {
                         size: 16,
                       ),
                       const SizedBox(width: 4),
-                      Text(
-                        widget.newsModel.author!,
-                        style: TextStyles.font14Regular(context).copyWith(
-                          color: const Color.fromARGB(255, 175, 173, 192),
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width * 0.2,
+                        child: Text(
+                          widget.newsModel.author!,
+                          style: TextStyles.font14Regular(context).copyWith(
+                            color: const Color.fromARGB(255, 175, 173, 192),
+                            overflow: TextOverflow.ellipsis,
+                          ),
                         ),
                       ),
                     ],

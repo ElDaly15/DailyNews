@@ -5,8 +5,8 @@ import 'package:daily_news/core/widgets/headers/custom_app_header.dart';
 import 'package:flutter/material.dart';
 
 class CustomTrendingErrorWidget extends StatelessWidget {
-  const CustomTrendingErrorWidget({super.key, required this.errorMsg});
-  final String errorMsg;
+  const CustomTrendingErrorWidget({super.key, required this.title});
+  final String title;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -15,8 +15,8 @@ class CustomTrendingErrorWidget extends StatelessWidget {
         children: [
           const SafeArea(child: SizedBox()),
           const SizedBox(height: 20),
-          const CustomViewsAppBar(
-            title: 'Trending',
+          CustomViewsAppBar(
+            title: title,
           ),
           const SizedBox(height: 20),
           const Spacer(),

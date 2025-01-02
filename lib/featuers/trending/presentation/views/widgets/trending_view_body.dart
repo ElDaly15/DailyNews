@@ -56,8 +56,7 @@ class TrendingViewBody extends StatelessWidget {
         } else if (state is GetTrendingNewsLoading) {
           return const TrendingViewLoading();
         }
-        return const CustomTrendingErrorWidget(
-            errorMsg: 'An Error Occurred , Please Try Again');
+        return const CustomTrendingErrorWidget(title: 'Trending');
       },
     );
   }
