@@ -1,24 +1,31 @@
+import 'package:daily_news/core/models/news_model.dart';
 import 'package:daily_news/featuers/news/presentation/views/widgets/custom_news_app_bar.dart';
 import 'package:daily_news/featuers/news/presentation/views/widgets/news_detailes.dart';
 import 'package:flutter/material.dart';
 
 class NewsViewBody extends StatelessWidget {
-  const NewsViewBody({super.key});
+  const NewsViewBody(
+      {super.key, required this.newsModel, required this.postTime});
+  final NewsModel newsModel;
+  final String postTime;
 
   @override
   Widget build(BuildContext context) {
-    return const SingleChildScrollView(
+    return SingleChildScrollView(
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 22),
+        padding: const EdgeInsets.symmetric(horizontal: 22),
         child: Column(
           children: [
-            SafeArea(child: SizedBox()),
-            CustomNewsAppBar(),
-            SizedBox(
+            const SafeArea(child: SizedBox()),
+            const CustomNewsAppBar(),
+            const SizedBox(
               height: 20,
             ),
-            NewsDetailes(),
-            SizedBox(
+            NewsDetailes(
+              newsModel: newsModel,
+              postTime: postTime,
+            ),
+            const SizedBox(
               height: 20,
             ),
           ],

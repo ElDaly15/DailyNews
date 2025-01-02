@@ -47,7 +47,11 @@ class _TrendingItemState extends State<TrendingItem> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        g.Get.to(() => const NewsView(),
+        g.Get.to(
+            () => NewsView(
+                  newsModel: widget.newsModel,
+                  postTime: timeAgo,
+                ),
             transition: g.Transition.fade,
             duration: const Duration(milliseconds: 500));
       },
