@@ -56,7 +56,10 @@ class HomeViewBody extends StatelessWidget {
                   child: CustomHeading(
                     mainTitle: 'Trending',
                     onTap: () {
-                      g.Get.to(() => const TrendingView(),
+                      g.Get.to(
+                          () => TrendingView(
+                                newsList: state.news,
+                              ),
                           transition: g.Transition.fade,
                           duration: const Duration(milliseconds: 500));
                     },
@@ -66,10 +69,12 @@ class HomeViewBody extends StatelessWidget {
               const SliverToBoxAdapter(
                 child: SizedBox(height: 22),
               ),
-              const SliverPadding(
-                padding: EdgeInsets.symmetric(horizontal: 22),
+              SliverPadding(
+                padding: const EdgeInsets.symmetric(horizontal: 22),
                 sliver: SliverToBoxAdapter(
-                  child: TrendingItem(),
+                  child: TrendingItem(
+                    newsModel: state.news[0],
+                  ),
                 ),
               ),
               const SliverToBoxAdapter(

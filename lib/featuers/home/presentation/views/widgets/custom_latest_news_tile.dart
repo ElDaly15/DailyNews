@@ -81,10 +81,17 @@ class CustomLatestListTile extends StatelessWidget {
                         size: 16,
                       ),
                       const SizedBox(width: 4),
-                      Text(
-                        'BBC News',
-                        style: TextStyles.font14Regular(context).copyWith(
-                          color: const Color.fromARGB(255, 175, 173, 192),
+                      FittedBox(
+                        fit: BoxFit.scaleDown,
+                        child: SizedBox(
+                          width: MediaQuery.of(context).size.width * 0.18,
+                          child: Text(
+                            'BBC News',
+                            style: TextStyles.font14Regular(context).copyWith(
+                              color: const Color.fromARGB(255, 175, 173, 192),
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ),
                         ),
                       ),
                       const SizedBox(width: 24),

@@ -26,7 +26,8 @@ class NewsModel {
       title: json['title'] ?? 'Unknown Title',
       description: json['description'] ?? 'Unknown Description',
       url: json['url'] ?? 'Unknown Url',
-      urlToImage: json['urlToImage'] ?? 'Unknown Image',
+      urlToImage: json['urlToImage'] ??
+          'https://archive.org/download/placeholder-image/placeholder-image.jpg',
       publishedAt: json['publishedAt'] ?? 'Unknown Date',
       content: json['content'] ?? 'Unknown Content',
     );

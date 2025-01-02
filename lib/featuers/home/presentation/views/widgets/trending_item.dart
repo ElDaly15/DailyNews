@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:daily_news/core/models/news_model.dart';
 import 'package:daily_news/core/utils/app_colors.dart';
 import 'package:daily_news/core/utils/app_styles.dart';
 import 'package:daily_news/featuers/news/presentation/views/news_view.dart';
@@ -6,8 +7,41 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart' as g;
 
-class TrendingItem extends StatelessWidget {
-  const TrendingItem({super.key});
+class TrendingItem extends StatefulWidget {
+  const TrendingItem({super.key, required this.newsModel});
+  final NewsModel newsModel;
+
+  @override
+  State<TrendingItem> createState() => _TrendingItemState();
+}
+
+class _TrendingItemState extends State<TrendingItem> {
+  String timeAgo = '';
+  @override
+  void initState() {
+    super.initState();
+    String apiDateTime = widget.newsModel.publishedAt!;
+
+    DateTime postedDateTime = DateTime.parse(apiDateTime);
+
+    DateTime now = DateTime.now().toUtc();
+
+    Duration difference = now.difference(postedDateTime);
+
+    timeAgo = formatTimeDifference(difference);
+  }
+
+  String formatTimeDifference(Duration difference) {
+    if (difference.inDays > 0) {
+      return "${difference.inDays} d ago";
+    } else if (difference.inHours > 0) {
+      return "${difference.inHours} h ago";
+    } else if (difference.inMinutes > 0) {
+      return "${difference.inMinutes} m ago";
+    } else {
+      return "just now";
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -39,14 +73,13 @@ class TrendingItem extends StatelessWidget {
                     color: AppColors.whiteColor,
                     size: 44,
                   ),
-                  imageUrl:
-                      'https://cdn.pixabay.com/photo/2015/04/23/22/00/new-year-background-736885_960_720.jpg',
+                  imageUrl: widget.newsModel.urlToImage!,
                   fit: BoxFit.cover,
                 )),
           ),
           const SizedBox(height: 10),
           Text(
-            'Russian warship: Moskva sinks in Black Sea',
+            widget.newsModel.title!,
             style: TextStyles.font20Regular(context).copyWith(
                 color: AppColors.whiteColor, overflow: TextOverflow.ellipsis),
           ),
@@ -61,10 +94,17 @@ class TrendingItem extends StatelessWidget {
               const SizedBox(
                 width: 4,
               ),
-              Text(
-                'BBC News',
-                style: TextStyles.font14Regular(context)
-                    .copyWith(color: const Color.fromARGB(255, 175, 173, 192)),
+              FittedBox(
+                fit: BoxFit.scaleDown,
+                child: SizedBox(
+                  width: MediaQuery.of(context).size.width * 0.18,
+                  child: Text(
+                    widget.newsModel.author!,
+                    style: TextStyles.font14Regular(context).copyWith(
+                        color: const Color.fromARGB(255, 175, 173, 192),
+                        overflow: TextOverflow.ellipsis),
+                  ),
+                ),
               ),
               const SizedBox(
                 width: 24,
@@ -78,7 +118,7 @@ class TrendingItem extends StatelessWidget {
                 width: 4,
               ),
               Text(
-                '2h ago',
+                timeAgo,
                 style: TextStyles.font14Regular(context)
                     .copyWith(color: const Color.fromARGB(255, 175, 173, 192)),
               ),
