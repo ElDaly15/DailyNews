@@ -32,4 +32,17 @@ class NewsModel {
       content: json['content'] ?? 'Unknown Content',
     );
   }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'source': {'name': sourceName},
+      'author': author,
+      'title': title,
+      'description': description,
+      'url': url,
+      'urlToImage': urlToImage,
+      'publishedAt': publishedAt,
+      'content': content,
+    };
+  }
 }

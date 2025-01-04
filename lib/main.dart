@@ -1,3 +1,4 @@
+import 'package:daily_news/core/db/cached/shared_pref.dart';
 import 'package:daily_news/featuers/home/presentation/manager/get_latest_news_cubit/get_latest_news_cubit.dart';
 import 'package:daily_news/featuers/home/presentation/manager/get_trending_news_cubit/get_trending_news_cubit.dart';
 import 'package:daily_news/featuers/latest/presentation/category_news_cubit/get_category_news_cubit.dart';
@@ -9,6 +10,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  CacheHelper().init();
   if (kReleaseMode) {
     runApp(const WorldNewsApp());
   } else {

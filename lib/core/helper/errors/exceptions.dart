@@ -7,6 +7,12 @@ class ServerError implements Exception {
   ServerError({required this.errorModel});
 }
 
+class CacheError implements Exception {
+  final String errorMsg;
+
+  CacheError({required this.errorMsg});
+}
+
 void dioServerExceptions(DioException e) {
   switch (e.type) {
     case DioExceptionType.connectionTimeout:
