@@ -25,7 +25,7 @@ class NewsModel {
       author: json['author'] ?? 'Unknown Author',
       title: json['title'] ?? 'Unknown Title',
       description: json['description'] ?? 'Unknown Description',
-      url: json['url'] ?? 'Unknown Url',
+      url: json['url'] ?? 'https://www.google.co.uk/',
       urlToImage: json['urlToImage'] ??
           'https://archive.org/download/placeholder-image/placeholder-image.jpg',
       publishedAt: json['publishedAt'] ?? 'Unknown Date',

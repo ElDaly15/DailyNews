@@ -17,7 +17,9 @@ class NewsViewBody extends StatelessWidget {
         child: Column(
           children: [
             const SafeArea(child: SizedBox()),
-            const CustomNewsAppBar(),
+            CustomNewsAppBar(
+              news: newsModel,
+            ),
             const SizedBox(
               height: 20,
             ),
