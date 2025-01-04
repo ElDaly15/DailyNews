@@ -85,6 +85,7 @@ class HomeViewLoading extends StatelessWidget {
             ),
             enabled: true,
             child: CustomListViewOfLatestNews(
+              isSearch: false,
               latestNews: fakeListOfNews,
             )),
       ],

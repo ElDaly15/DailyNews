@@ -3,8 +3,10 @@ import 'package:daily_news/featuers/home/presentation/views/widgets/custom_lates
 import 'package:flutter/material.dart';
 
 class CustomListViewOfLatestNews extends StatelessWidget {
-  const CustomListViewOfLatestNews({super.key, required this.latestNews});
+  const CustomListViewOfLatestNews(
+      {super.key, required this.latestNews, required this.isSearch});
   final List<NewsModel> latestNews;
+  final bool isSearch;
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +14,7 @@ class CustomListViewOfLatestNews extends StatelessWidget {
       padding: EdgeInsets.zero,
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
-      itemCount: 4,
+      itemCount: isSearch ? latestNews.length : 4,
       itemBuilder: (context, index) {
         return Padding(
           padding: index == 0

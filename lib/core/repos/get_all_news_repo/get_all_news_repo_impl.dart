@@ -20,6 +20,7 @@ class GetAllNewsRepoImpl implements GetAllNewsRepo {
       {required String q}) async {
     if (await networkInfo.isConnected!) {
       try {
+        newsList.clear();
         var response = await apiConsumer.get(Endpoints.everything,
             queryPrameters: {'q': q, 'apiKey': Consts.apiKey});
         for (var item in response['articles']) {

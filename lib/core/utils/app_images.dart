@@ -18,9 +18,17 @@ class Assets {
   /// assets/images/news_remove_logo.png
   static const String imagesNewsRemoveLogo = "assets/images/news_remove_logo.png";
 
+  /// Assets for imagesNresult
+  /// assets/images/nresult.png
+  static const String imagesNresult = "assets/images/nresult.png";
+
   /// Assets for imagesSearch
   /// assets/images/search.png
   static const String imagesSearch = "assets/images/search.png";
+
+  /// Assets for imagesSsearch
+  /// assets/images/ssearch.png
+  static const String imagesSsearch = "assets/images/ssearch.png";
 
   /// Assets for imagesTest
   /// assets/images/test.jpg

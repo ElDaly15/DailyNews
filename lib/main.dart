@@ -2,6 +2,7 @@ import 'package:daily_news/core/db/cached/shared_pref.dart';
 import 'package:daily_news/featuers/home/presentation/manager/get_latest_news_cubit/get_latest_news_cubit.dart';
 import 'package:daily_news/featuers/home/presentation/manager/get_trending_news_cubit/get_trending_news_cubit.dart';
 import 'package:daily_news/featuers/latest/presentation/category_news_cubit/get_category_news_cubit.dart';
+import 'package:daily_news/featuers/search/presentation/manager/get_search_news_cubit/get_search_news_cubit.dart';
 import 'package:daily_news/featuers/splash/presentation/views/splash_view.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
@@ -35,6 +36,9 @@ class WorldNewsApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => GetCategoryNewsCubit(),
+        ),
+        BlocProvider(
+          create: (context) => GetSearchNewsCubit(),
         ),
       ],
       child: GetMaterialApp(

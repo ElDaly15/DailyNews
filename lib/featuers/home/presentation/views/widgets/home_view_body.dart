@@ -104,6 +104,7 @@ class HomeViewBody extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 22),
                     sliver: SliverToBoxAdapter(
                       child: CustomListViewOfLatestNews(
+                        isSearch: false,
                         latestNews: lastState.newsList,
                       ),
                     ),

@@ -1,7 +1,9 @@
 import 'package:daily_news/core/utils/app_colors.dart';
 import 'package:daily_news/core/utils/app_styles.dart';
+import 'package:daily_news/featuers/search/presentation/manager/get_search_news_cubit/get_search_news_cubit.dart';
 import 'package:daily_news/featuers/search/presentation/views/widgets/search_view_body.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SearchView extends StatefulWidget {
   const SearchView({super.key});
@@ -40,6 +42,9 @@ class _SearchViewState extends State<SearchView> {
             child: IconButton(
                 onPressed: () {
                   Navigator.pop(context);
+                  _focusNode.unfocus();
+                  BlocProvider.of<GetSearchNewsCubit>(context)
+                      .resetSearchResults();
                 },
                 icon: const Icon(
                   Icons.close,
@@ -53,7 +58,14 @@ class _SearchViewState extends State<SearchView> {
             ),
           ),
           child: TextField(
-            onChanged: (value) {},
+            onChanged: (value) {
+              if (value.isNotEmpty) {
+                BlocProvider.of<GetSearchNewsCubit>(context).getNews(q: value);
+              } else {
+                BlocProvider.of<GetSearchNewsCubit>(context)
+                    .resetSearchResults();
+              }
+            },
             focusNode: _focusNode,
             enabled: true,
             style: TextStyles.font18SemiBold(context).copyWith(
