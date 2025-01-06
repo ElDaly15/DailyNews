@@ -1,16 +1,20 @@
-# daily_news
+## World News App  
+**Duration**: 12/2024 – 01/2025  
+**Technologies**: Flutter, MVVM Architecture, Bloc , RESTful APIs  
 
-A new Flutter project.
+### Introduction  
+World News is a Flutter-based mobile application that provides users with real-time access to the latest news from around the world. The app fetches news data from reliable sources through RESTful APIs, offering a smooth and user-friendly interface.
 
-## Getting Started
+### Features  
+- Access the latest global news with real-time updates.  
+- Search news by topics, keywords, or categories.  
+- Built using MVVM architecture for maintainable and scalable code.  
+- State management handled using the Bloc package.  
+- Fetches news data through RESTful APIs for seamless performance.  
+- Designed with a clean, intuitive UI for easy navigation.
 
-This project is a starting point for a Flutter application.
+## Contributing  
+Feel free to fork the project and submit pull requests. All contributions are welcome!  
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## License  
+This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
